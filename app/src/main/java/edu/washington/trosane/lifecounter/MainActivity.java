@@ -26,15 +26,16 @@ public class MainActivity extends ActionBarActivity {
             life4 = savedInstanceState.getInt("Player4");
             loser = savedInstanceState.getInt("loser");
 
-            TextView text1 = (TextView) findViewById(R.id.P1life);
-            text1.setText("" + life1);
-            TextView text2 = (TextView) findViewById(R.id.P2life);
-            text2.setText("" + life2);
-            TextView text3 = (TextView) findViewById(R.id.P3life);
-            text3.setText("" + life3);
-            TextView text4 = (TextView) findViewById(R.id.P4life);
-            text4.setText("" + life4);
+            TextView t1 = (TextView) findViewById(R.id.P1life);
+            t1.setText("" + life1);
+            TextView t2 = (TextView) findViewById(R.id.P2life);
+            t2.setText("" + life2);
+            TextView t3 = (TextView) findViewById(R.id.P3life);
+            t3.setText("" + life3);
+            TextView t4 = (TextView) findViewById(R.id.P4life);
+            t4.setText("" + life4);
             TextView loserText = (TextView) findViewById(R.id.loser);
+
             if(loser != 0) {
                 loserText.setText("Player " + loser + " LOSES!");
                 View c = findViewById(R.id.loser);
@@ -77,24 +78,29 @@ public class MainActivity extends ActionBarActivity {
         savedInstanceState.putInt("loser", loser);
     }
 
-    public void buttonTouch(View view) {
+    public void P1buttonTouch(View view) {
         if (view.getId() == R.id.one_upP1) {
             life1++;
-            TextView t = (TextView)findViewById((R.id.P1life));
+            TextView t = (TextView) findViewById((R.id.P1life));
             t.setText("" + life1);
         } else if (view.getId() == R.id.one_downP1) {
             life1--;
-            TextView t = (TextView)findViewById((R.id.P1life));
+            TextView t = (TextView) findViewById((R.id.P1life));
             t.setText("" + life1);
-        } else if (view.getId() == R.id.five_upP1){
-            life1+=5;
-            TextView t = (TextView)findViewById((R.id.P1life));
+        } else if (view.getId() == R.id.five_upP1) {
+            life1 += 5;
+            TextView t = (TextView) findViewById((R.id.P1life));
             t.setText("" + life1);
-        } else if (view.getId() == R.id.five_downP1){
-            life1-=5;
-            TextView t = (TextView)findViewById((R.id.P1life));
+        } else if (view.getId() == R.id.five_downP1) {
+            life1 -= 5;
+            TextView t = (TextView) findViewById((R.id.P1life));
             t.setText("" + life1);
-        } else if (view.getId() == R.id.one_upP2) {
+        }
+        loser(view);
+    }
+
+    public void P2buttonTouch(View view) {
+        if (view.getId() == R.id.one_upP2) {
             life2++;
             TextView t = (TextView)findViewById((R.id.P2life));
             t.setText("" + life2);
@@ -110,7 +116,12 @@ public class MainActivity extends ActionBarActivity {
             life2-=5;
             TextView t = (TextView)findViewById((R.id.P2life));
             t.setText("" + life2);
-        } else if (view.getId() == R.id.one_upP3) {
+        }
+        loser(view);
+    }
+
+    public void P3buttonTouch(View view) {
+        if (view.getId() == R.id.one_upP3) {
             life3++;
             TextView t = (TextView)findViewById((R.id.P3life));
             t.setText("" + life3);
@@ -126,7 +137,12 @@ public class MainActivity extends ActionBarActivity {
             life3-=5;
             TextView t = (TextView)findViewById((R.id.P3life));
             t.setText("" + life3);
-        } else if (view.getId() == R.id.one_upP4) {
+        }
+        loser(view);
+    }
+
+    public void P4buttonTouch(View view) {
+        if (view.getId() == R.id.one_upP4) {
             life4++;
             TextView t = (TextView)findViewById((R.id.P4life));
             t.setText("" + life4);
@@ -157,6 +173,7 @@ public class MainActivity extends ActionBarActivity {
             } else if (life4 <= 0) {
                 loser = 4;
             }
+
             TextView loserText = (TextView) findViewById(R.id.loser);
             loserText.setText("Player " + loser + " LOSES!");
             View loserView = findViewById(R.id.loser);

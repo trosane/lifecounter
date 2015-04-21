@@ -2,5 +2,9 @@
     <string name="app_name">lifecounter</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="plus_one">+1</string>
+    <string name="minus_one">-1</string>
+    <string name="plus_five">+5</string>
+    <string name="minus_five">-5</string>
     <string name="action_settings">Settings</string>
 </resources>
